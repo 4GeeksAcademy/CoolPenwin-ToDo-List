@@ -45,6 +45,15 @@ const ToDoList = () => {
             onKeyPress={handleKeyPress}
             placeholder="Añadir nueva tarea"
           />
+          {tasks.length === 0 && (
+            <div
+              className="alert alert-danger d-flex align-items-center mt-3"
+              role="alert"
+            >
+              <i className="fa-solid fa-triangle-exclamation"></i>
+              <div className="ms-1">No hay tareas, añadir tareas</div>
+            </div>
+          )}
           <ul>
             {tasks.map((task, index) => (
               <li key={index} className="todo-item ">
