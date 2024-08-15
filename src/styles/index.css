@@ -10,6 +10,7 @@ body {
 
 .container {
   text-align: center;
+
 }
 
 h1 {
@@ -20,7 +21,8 @@ h1 {
 
 .todo-list {
   background: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 25px 50px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 10px 0px -4px white, 0px 20px 0px -8px #f1f1f1, 0px 20px 20px 20px rgba(175, 47, 47, 0.15);;
+
   width: 300px;
   margin-top: 20px;
 }
@@ -46,12 +48,7 @@ li {
   font-size: 24px;
 }
 
-.footer {
-  padding: 16px;
-  font-size: 14px;
-  color: #777;
-  position: relative; /* Necesario para posicionar el pseudo-elemento */
-}
+
 
 .footer::after,
 .footer::before {
@@ -62,8 +59,6 @@ li {
   width: 80%;
   height: 10px;
   background: #ddd;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
 }
 
 .footer::after {
@@ -100,50 +95,12 @@ li {
 .todo-item:hover .delete-icon {
   display: inline; /* Aparece al hacer hover */
 }
-/* .todo-list {
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background-color: #f9f9f9;
-}
 
-.todo-list input[type="text"] {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
 
-.todo-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  background-color: #fff;
+.fit-content {
+  width: fit-content;
+  height: fit-content; /* Si también quieres ajustar la altura */
 }
-
-.todo-item input[type="checkbox"] {
-  margin-right: 10px;
-}
-
-.todo-item button {
-  background-color: #ff4d4d;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.todo-item button:hover {
-  background-color: #ff1a1a;
-} */
 
 
 /* footer */

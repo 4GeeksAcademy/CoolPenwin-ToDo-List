@@ -6,7 +6,7 @@ const ToDoList = () => {
   const [tasks, setTasks] = useState([
     { text: "Tarea 1", completed: false },
     { text: "Tarea 2", completed: false },
-    { text: "Tarea 3", completed: false }
+    { text: "Tarea 3", completed: false },
   ]);
   const [newTask, setNewTask] = useState("");
 
@@ -30,9 +30,8 @@ const ToDoList = () => {
   };
 
   const countIncompleteTasks = () => {
-    return tasks.filter(task => !task.completed).length;
+    return tasks.filter((task) => !task.completed).length;
   };
-
 
   return (
     <div className="text-center">
@@ -46,23 +45,33 @@ const ToDoList = () => {
             onKeyPress={handleKeyPress}
             placeholder="Añadir nueva tarea"
           />
-        <ul>
-  {tasks.map((task, index) => (
-    <li key={index} className="todo-item">
-      <input
-        type="checkbox"
-        checked={task.completed}
-        onChange={() => toggleTaskCompletion(index)}
-      />
-      <span className="todo-text" style={{ textDecoration: task.completed ? "line-through" : "none" }}>
-        {task.text}
-      </span>
-      <button type="button" style={{border:'none', background:'none'}} className="col-1 btn btn-outline-light" onClick={() => deleteTask(index)}>
-        <FontAwesomeIcon icon={faTrash} />
-      </button>
-    </li>
-  ))}
-</ul>
+          <ul>
+            {tasks.map((task, index) => (
+              <li key={index} className="todo-item ">
+                <input
+                  type="checkbox"
+                  checked={task.completed}
+                  onChange={() => toggleTaskCompletion(index)}
+                />
+                <span
+                  className="todo-text"
+                  style={{
+                    textDecoration: task.completed ? "line-through" : "none",
+                  }}
+                >
+                  {task.text}
+                </span>
+                <button
+                  type="button"
+                  style={{ border: "none", background: "none" }}
+                  className="col-1 btn btn-outline-light"
+                  onClick={() => deleteTask(index)}
+                >
+                  <FontAwesomeIcon icon={faTrash} />
+                </button>
+              </li>
+            ))}
+          </ul>
           <div className="footer">
             <span>{countIncompleteTasks()} items left</span>
           </div>
