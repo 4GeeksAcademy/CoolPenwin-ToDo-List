@@ -3,7 +3,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 const ToDoList = () => {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState([
+    { text: "Tarea 1", completed: false },
+    { text: "Tarea 2", completed: false },
+    { text: "Tarea 3", completed: false }
+  ]);
   const [newTask, setNewTask] = useState("");
 
   const handleKeyPress = (event) => {
@@ -25,43 +29,45 @@ const ToDoList = () => {
     setTasks(updatedTasks);
   };
 
+  const countIncompleteTasks = () => {
+    return tasks.filter(task => !task.completed).length;
+  };
+
+
   return (
     <div className="text-center">
-    <div class="container">
-      <h1>toDos</h1>
-      <div class="todo-list">
-      <input
-        type="text"
-
-        value={newTask}
-        onChange={(e) => setNewTask(e.target.value)}
-        onKeyPress={handleKeyPress}
-        placeholder="Añadir nueva tarea"
-      />
-      <ul>
-
-      {tasks.map((task, index) => (
-        <li key={index} className="todo-item">
+      <div className="container">
+        <h1>toDos</h1>
+        <div className="todo-list">
           <input
-            type="checkbox"
-            checked={task.completed}
-            onChange={() => toggleTaskCompletion(index)}
-            />
-          <span style={{ textDecoration: task.completed ? "line-through" : "none" }}>
-            {task.text}
-          </span>
-          <button className="delete-icon" onClick={() => deleteTask(index)}>
-            <FontAwesomeIcon icon={faTrash} />
-          </button>
-        </li>
-        
-      ))}
-      </ul>
-      <div class="footer">
-                <span>4 items left</span>
-            </div>
-    </div>
-    </div>
+            type="text"
+            value={newTask}
+            onChange={(e) => setNewTask(e.target.value)}
+            onKeyPress={handleKeyPress}
+            placeholder="Añadir nueva tarea"
+          />
+        <ul>
+  {tasks.map((task, index) => (
+    <li key={index} className="todo-item">
+      <input
+        type="checkbox"
+        checked={task.completed}
+        onChange={() => toggleTaskCompletion(index)}
+      />
+      <span className="todo-text" style={{ textDecoration: task.completed ? "line-through" : "none" }}>
+        {task.text}
+      </span>
+      <button type="button" style={{border:'none', background:'none'}} className="col-1 btn btn-outline-light" onClick={() => deleteTask(index)}>
+        <FontAwesomeIcon icon={faTrash} />
+      </button>
+    </li>
+  ))}
+</ul>
+          <div className="footer">
+            <span>{countIncompleteTasks()} items left</span>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

@@ -80,11 +80,23 @@ li {
   display: none; /* Oculto por defecto */
   /* position: absolute; */
   right: 16px; /* Ajusta según sea necesario */
-  top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
 }
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Alinea verticalmente los elementos */
+  padding: 16px;
+  border-bottom: 1px solid #ededed;
+  font-size: 24px;
+  position: relative; /* Necesario para posicionar el icono */
+}
 
+.todo-text {
+  flex-grow: 1; /* Permite que el texto ocupe el espacio disponible */
+  text-align: center; /* Centra el texto horizontalmente */
+}
 .todo-item:hover .delete-icon {
   display: inline; /* Aparece al hacer hover */
 }
