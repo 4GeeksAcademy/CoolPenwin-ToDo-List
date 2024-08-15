@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheck, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 const ToDoList = () => {
   const [tasks, setTasks] = useState([]);
@@ -24,27 +26,42 @@ const ToDoList = () => {
   };
 
   return (
-    <div className="todo-list">
+    <div className="text-center">
+    <div class="container">
+      <h1>toDos</h1>
+      <div class="todo-list">
       <input
         type="text"
+
         value={newTask}
         onChange={(e) => setNewTask(e.target.value)}
         onKeyPress={handleKeyPress}
         placeholder="Añadir nueva tarea"
       />
+      <ul>
+
       {tasks.map((task, index) => (
-        <div key={index} className="todo-item">
+        <li key={index} className="todo-item">
           <input
             type="checkbox"
             checked={task.completed}
             onChange={() => toggleTaskCompletion(index)}
-          />
+            />
           <span style={{ textDecoration: task.completed ? "line-through" : "none" }}>
             {task.text}
           </span>
-          <button onClick={() => deleteTask(index)}>Eliminar</button>
-        </div>
+          <button className="delete-icon" onClick={() => deleteTask(index)}>
+            <FontAwesomeIcon icon={faTrash} />
+          </button>
+        </li>
+        
       ))}
+      </ul>
+      <div class="footer">
+                <span>4 items left</span>
+            </div>
+    </div>
+    </div>
     </div>
   );
 };

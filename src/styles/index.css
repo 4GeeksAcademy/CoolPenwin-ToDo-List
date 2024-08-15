@@ -1,4 +1,94 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  text-align: center;
+}
+
+h1 {
+  font-size: 100px;
+  color: rgba(175, 47, 47, 0.15);
+  margin: 0;
+}
+
 .todo-list {
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 25px 50px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  margin-top: 20px;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  box-sizing: border-box;
+  font-size: 24px;
+  border-bottom: 1px solid #ededed;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  padding: 16px;
+  border-bottom: 1px solid #ededed;
+  font-size: 24px;
+}
+
+.footer {
+  padding: 16px;
+  font-size: 14px;
+  color: #777;
+  position: relative; /* Necesario para posicionar el pseudo-elemento */
+}
+
+.footer::after,
+.footer::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 10px;
+  background: #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.footer::after {
+  bottom: -10px;
+  z-index: -1;
+}
+
+.footer::before {
+  bottom: -20px;
+  z-index: -2;
+  background: #ccc; /* Un color diferente para distinguir */
+}
+.delete-icon {
+  display: none; /* Oculto por defecto */
+  /* position: absolute; */
+  right: 16px; /* Ajusta según sea necesario */
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.todo-item:hover .delete-icon {
+  display: inline; /* Aparece al hacer hover */
+}
+/* .todo-list {
   max-width: 400px;
   margin: 0 auto;
   padding: 20px;
@@ -41,7 +131,9 @@
 
 .todo-item button:hover {
   background-color: #ff1a1a;
-}
+} */
+
+
 /* footer */
 .logo {
     cursor: pointer;
